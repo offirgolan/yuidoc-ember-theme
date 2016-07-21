@@ -1,0 +1,15 @@
+{
+  "name": "yuidoc-ember-theme",
+  "version": "0.0.1",
+  "description": "YUIDoc theme for ember addons",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/offirgolan/yuidoc-ember-theme.git"
+  },
+  "keywords": [
+    "yuidoc"
+  ],
+  "author": {
+    "name": "Offir Golan"
+  }
+}

@@ -1,0 +1,35 @@
+<div id="sidebar">
+  <div class="header">
+    <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
+      <a href="{{projectRoot}}">{{projectName}}</a>
+    </h1>
+    <form class="navbar-form">
+        <input type="search" class="search-query" placeholder="Search classes/modules...">
+    </form>
+  </div>
+  <ul class="main-nav">
+    <li class="section">Modules</li>
+     {{#if modules}}
+       {{#modules}}
+       <li {{#eq name ../name}} class="active"{{/eq}} >
+         <a href="{{../projectRoot}}modules/{{name}}.html">{{displayName}}</a>
+         {{#if submodules}}
+           {{#submodules}}
+            <li class="sub {{#eq displayName ../../../displayName}}active{{/eq}}"><a href="{{../../../projectRoot}}modules/{{displayName}}.html">{{displayName}}</a></li>
+           {{/submodules}}
+         {{/if}}
+       </li>
+       {{/modules}}
+     {{/if}}
+
+    <li class="section">Classes</li>
+    {{#publicClasses classes}}
+        <li {{#eq name ../name}} class="active"{{/eq}}><a  href="{{../projectRoot}}classes/{{name}}.html">{{displayName}}</a></li>
+    {{/publicClasses}}
+  </ul>
+
+  <div class="footer">
+    <a href="{{projectUrl}}" class="github">GitHub</a>
+    <p class="version pull-right">{{projectVersion}}</p>
+  </div>
+</div>

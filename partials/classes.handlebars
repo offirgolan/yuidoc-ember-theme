@@ -1,0 +1,192 @@
+<div class="page-header">
+    <h1>{{name}}</h1>
+</div>
+<div class="well well-small">
+    {{#if uses}}
+        <div class="uses">
+            Uses
+            <ul class="inline commas">
+                {{#uses}}
+                    <li><a href="{{.}}.html">{{.}}</a></li>
+                {{/uses}}
+            </ul>
+        </div>
+    {{/if}}
+
+    {{#if extends}}
+        <div class="extends">
+            Extends {{#crossLink extends}}{{/crossLink}}
+        </div>
+    {{/if}}
+
+    {{#if module}}
+        {{#if submodule}}
+            Module: {{#crossLinkModule submodule}}{{/crossLinkModule}}<br>
+            Parent Module: {{#crossLinkModule module}}{{/crossLinkModule}}
+        {{else}}
+            Module: {{#crossLinkModule module}}{{/crossLinkModule}}
+        {{/if}}
+    {{/if}}
+
+    {{#if since}}
+        <p>Available since {{since}}</p>
+    {{/if}}
+
+    {{#if foundAt}}
+        <div class="foundat">
+            Defined in: <a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a>
+        </div>
+    {{/if}}
+</div>
+
+{{#if deprecated}}
+    <div class="well well-small">
+        <p>
+        {{#if deprecationMessage}}
+            <strong>Deprecated:</strong> {{deprecationMessage}}
+        {{else}}
+            This class is deprecated.
+        {{/if}}
+        </p>
+    </div>
+{{/if}}
+
+{{#is_constructor}}
+    <div class="constructor">
+        <h2>Constructor</h2>
+{{>method}}
+    </div>
+{{/is_constructor}}
+
+{{#if classDescription}}
+  <div class="yuidoc-class-description">
+  {{{classDescription}}}
+  </div>
+{{/if}}
+
+<div>
+    <div class="page-section">
+        <div id="index">
+            {{#if methods}}
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods{{#if extends}} extends{{/if}}">
+                        {{#methods}}
+                            <li class="index-item method{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if overwritten_from}} inherited{{/if}}{{#if extended_from}} inherited{{/if}}">
+                                <a href="#method_{{name}}">{{name}}</a>
+
+                                {{#if static}}
+                                    <span class="flag static">static</span>
+                                {{/if}}
+                                {{#if deprecated}}
+                                    <span class="flag deprecated">deprecated</span>
+                                {{/if}}
+                            </li>
+                        {{/methods}}
+                    </ul>
+                </div>
+            {{/if}}
+
+            {{#if properties}}
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties{{#if extends}} extends{{/if}}">
+                        {{#properties}}
+                            <li class="index-item property{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if overwritten_from}} inherited{{/if}}{{#if extended_from}} inherited{{/if}}">
+                                <a href="#property_{{name}}">{{name}}</a>
+
+                                {{#if static}}
+                                    <span class="flag static">static</span>
+                                {{/if}}
+                                {{#if deprecated}}
+                                    <span class="flag deprecated">deprecated</span>
+                                {{/if}}
+                            </li>
+                        {{/properties}}
+                    </ul>
+                </div>
+            {{/if}}
+
+            {{#if attrs}}
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs{{#if extends}} extends{{/if}}">
+                        {{#attrs}}
+                            <li class="index-item attr{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if overwritten_from}} inherited{{/if}}{{#if extended_from}} inherited{{/if}}">
+                                <a href="#attr_{{name}}">{{name}}</a>
+                            </li>
+                        {{/attrs}}
+                    </ul>
+                </div>
+            {{/if}}
+
+            {{#if events}}
+                <div class="index-section events">
+                    <h3>Events</h3>
+
+                    <ul class="index-list events{{#if extends}} extends{{/if}}">
+                        {{#events}}
+                            <li class="index-item event{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if overwritten_from}} inherited{{/if}}{{#if extended_from}} inherited{{/if}}">
+                                <a href="#event_{{name}}">{{name}}</a>
+
+                                {{#if static}}
+                                    <span class="flag static">static</span>
+                                {{/if}}
+                                {{#if deprecated}}
+                                    <span class="flag deprecated">deprecated</span>
+                                {{/if}}
+                            </li>
+                        {{/events}}
+                    </ul>
+                </div>
+            {{/if}}
+        </div>
+
+        {{#if methods}}
+            <div id="methods" class="page-section">
+                <h2 class="off-left">Methods</h2>
+                <div class="item-list">
+                    {{#methods}}
+{{>method}}
+                    {{/methods}}
+                </div>
+            </div>
+        {{/if}}
+
+        {{#if properties}}
+            <div id="properties" class="page-section">
+                <h2 class="off-left">Properties</h2>
+                <div class="item-list">
+                {{#properties}}
+{{>props}}
+                {{/properties}}
+                </div>
+            </div>
+        {{/if}}
+
+        {{#if attrs}}
+            <div id="attrs" class="page-section">
+                <h2 class="off-left">Attributes</h2>
+                <div class="item-list">
+                {{#attrs}}
+{{>attrs}}
+                {{/attrs}}
+                </div>
+            </div>
+        {{/if}}
+
+        {{#if events}}
+            <div id="events" class="page-section">
+                <h2 class="off-left">Events</h2>
+                <div class="item-list">
+                {{#events}}
+{{>events}}
+                {{/events}}
+                </div>
+            </div>
+        {{/if}}
+    </div>
+</div>
