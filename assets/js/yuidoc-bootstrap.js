@@ -18,6 +18,10 @@ $(function() {
             var optionsArr = JSON.parse(localStorage.options),
                 optionsForm = $('#options-form');
 
+            if(!optionsForm.length) {
+                return;
+            }
+
             for(var i=0;i<optionsArr.length;i++){
                 var box = optionsForm.find('input:checkbox').eq(i);
                 box.prop('checked', optionsArr[i]);
@@ -107,13 +111,16 @@ $(function() {
         }
 
         if (hash.match(/^#method_/)) {
-            tabToActivate = '#methods';
+            tabToActivate = '#tab_methods';
         }
         else if (hash.match(/^#property_/)) {
-            tabToActivate = '#properties';
+            tabToActivate = '#tab_properties';
         }
         else if (hash.match(/^#event_/)) {
-            tabToActivate = '#event';
+            tabToActivate = '#tab_event';
+        }
+        else if (hash.match(/^#attr_/)) {
+            tabToActivate = '#tab_attr';
         }
         else if (hash.match(/#l\d+/)) {
             var lineNumber = /#l(\d+)/.exec(hash)[1];
@@ -126,7 +133,7 @@ $(function() {
             $tabToActivate.trigger('click', { ignore: true });
         }
 
-        if ($scroll.length) {
+        if ($scroll.length && !hash.match(/^#tab_/)) {
             scrollToAnchor($scroll);
         }
     }
@@ -148,7 +155,7 @@ $(function() {
     //
     $('#main-nav li').on('shown', function(e) {
         e.preventDefault();
-        setUpWidgets();
+        // setUpWidgets();
     });
 
     //
@@ -239,7 +246,7 @@ $(function() {
     // ************************************************************************* //
 
     setUpOptionsCheckboxes();
-    setUpWidgets();
+    // setUpWidgets();
     setUpHashChange();
     if (window.location.hash) {
         moveToWindowHash();

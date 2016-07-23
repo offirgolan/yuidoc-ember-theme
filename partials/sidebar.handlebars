@@ -1,35 +1,57 @@
-<div id="sidebar">
-  <div class="header">
-    <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
-      <a href="{{projectRoot}}">{{projectName}}</a>
-    </h1>
-    <form class="navbar-form">
-        <input type="search" class="search-query" placeholder="Search classes/modules...">
-    </form>
-  </div>
-  <ul class="main-nav">
-    <li class="section">Modules</li>
-     {{#if modules}}
-       {{#modules}}
-       <li {{#eq name ../name}} class="active"{{/eq}} >
-         <a href="{{../projectRoot}}modules/{{name}}.html">{{displayName}}</a>
-         {{#if submodules}}
-           {{#submodules}}
-            <li class="sub {{#eq displayName ../../../displayName}}active{{/eq}}"><a href="{{../../../projectRoot}}modules/{{displayName}}.html">{{displayName}}</a></li>
-           {{/submodules}}
-         {{/if}}
-       </li>
-       {{/modules}}
-     {{/if}}
+<ol class="panel-group" id="sidebar" role="tablist" aria-multiselectable="true">
+    <li class="panel panel-default">
+        <div class="panel-heading" role="tab" id="sidebar-version-heading">
+            <h4 class="panel-title">
+          <a role="button" href="{{projectUrl}}/commits/{{projectVersion}}" target="_blank">
+            Tag: {{projectVersion}}
+          </a>
+        </h4>
+        </div>
+    </li>
+    <li class="panel panel-default">
+        <div class="panel-heading" role="tab" id="sidebar-modules-heading">
+            <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" href="#sidebar-modules" aria-expanded="true" aria-controls="collapseOne">
+          Modules
+        </a>
+      </h4>
+        </div>
+        <div id="sidebar-modules" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sidebar-modules-heading">
+            <div class="panel-body">
+                {{#if modules}}
+                    <ol>
+                        {{#modules}}
+                            <li {{#eq name ../name}} class="active" {{/eq}}>
+                                <a href="{{../projectRoot}}modules/{{name}}.html">{{displayName}}</a>
+                                {{#if submodules}}
+                                    {{#submodules}}
+                                        <li class="sub {{#eq displayName ../../../displayName}}active{{/eq}}"><a href="{{../../../projectRoot}}modules/{{displayName}}.html">{{displayName}}</a></li>
+                                    {{/submodules}}
+                                {{/if}}
+                            </li>
+                        {{/modules}}
+                    </ol>
+                {{/if}}
+            </div>
+        </div>
+    </li>
 
-    <li class="section">Classes</li>
-    {{#publicClasses classes}}
-        <li {{#eq name ../name}} class="active"{{/eq}}><a  href="{{../projectRoot}}classes/{{name}}.html">{{displayName}}</a></li>
-    {{/publicClasses}}
-  </ul>
-
-  <div class="footer">
-    <a href="{{projectUrl}}" class="github">GitHub</a>
-    <p class="version pull-right">{{projectVersion}}</p>
-  </div>
-</div>
+    <li class="panel panel-default">
+        <div class="panel-heading" role="tab" id="sidebar-classes-heading">
+            <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" href="#sidebar-classes" aria-expanded="true" aria-controls="collapseOne">
+            Classes
+          </a>
+        </h4>
+        </div>
+        <div id="sidebar-classes" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sidebar-classes-heading">
+            <div class="panel-body">
+                <ol>
+                    {{#publicClasses classes}}
+                        <li {{#eq name ../name}} class="active" {{/eq}}><a href="{{../projectRoot}}classes/{{name}}.html">{{displayName}}</a></li>
+                    {{/publicClasses}}
+                </ol>
+            </div>
+        </div>
+    </li>
+</ol>

@@ -1,5 +1,5 @@
 <div id="property_{{name}}" class="property item{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if extended_from}} inherited{{/if}}">
-    <h3 class="name"><code>{{name}}</code></h3>
+    <h3 class="name">{{name}}</h3>
     <span class="type">{{#crossLink type}}{{/crossLink}}</span>
 
     {{#if deprecated}}
@@ -42,7 +42,7 @@
             {{/if}}
         {{/if}}
         {{#if foundAt}}
-        <a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a>
+        <a href="{{foundAt}}">{{{file}}}:{{{line}}}</a>
         {{/if}}
         </p>
 

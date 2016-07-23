@@ -1,8 +1,8 @@
 <div class="page-header">
-    <h1>{{name}}</h1>
+    <h1> <i class="fa fa-bookmark-o" aria-hidden="true"></i> {{name}} Module</h1>
 </div>
 
-<div class="clearfix well well-small">
+<div class="content-meta">
     {{#extra}}
         {{#selleck}}
             <a class="button link-docs" href="/yui/docs/{{name}}">User Guide &amp; Examples</a>
@@ -22,7 +22,7 @@
 
     {{#if foundAt}}
         <div class="foundat">
-            Defined in: <a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a>
+            Defined in: <a href="{{foundAt}}">{{{file}}}:{{{line}}}</a>
         </div>
     {{/if}}
 

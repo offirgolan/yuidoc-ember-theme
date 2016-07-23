@@ -8,21 +8,37 @@
     <link rel="stylesheet" href="{{projectAssets}}/css/main.css" id="site_styles">
     <link rel="stylesheet" href="{{projectAssets}}/css/custom.css">
     <link rel="stylesheet" href="{{projectAssets}}/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="{{projectAssets}}/vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{projectAssets}}/css/theme.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700' rel='stylesheet' type='text/css'>
     {{!-- <link rel="shortcut icon" type="image/png" href="{{projectAssets}}/favicon.png"> --}}
 </head>
 <body>
-    <div class="row">
-        <div class="sidebar-container">
-            {{>sidebar}}
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="{{projectRoot}}" class="navbar-brand">
+            <img src="{{projectAssets}}/img/ember-logo.png" alt="">
+            <span>{{projectName}}</span>
+          </a>
         </div>
-        <div class="content-container">
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-                    {{>options}}
+
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{projectUrl}}" class="fa fa-github github"></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="row">
+        <div id="content-wrapper">
+            {{>sidebar}}
+            <div class="content-container">
+                <div class="apidocs">
+                    <div id="docs-main">
+                        <div class="content">
 {{>layout_content}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,7 +46,8 @@
     </div>
     <script src="{{projectAssets}}/vendor/prettify/prettify-min.js"></script>
     <script>prettyPrint();</script>
-    <script src="{{projectAssets}}/vendor/jquery/jquery-1.8.2.min.js"></script>
+    <script src="{{projectAssets}}/vendor/jquery/jquery.min.js"></script>
+    <script src="{{projectAssets}}/vendor/jquery-ui/jquery-ui.min.js"></script>
     <script src="{{projectAssets}}/vendor/bootstrap/js/bootstrap.js"></script>
     <script src="{{projectAssets}}/js/yuidoc-bootstrap.js"></script>
 </body>

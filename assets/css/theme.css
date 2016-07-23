@@ -10,17 +10,10 @@ body {
   padding: 0;
   margin: 0;
   background: #fcfcfc;
+  font-size: 14px;
+  line-height: 1.4em;
 }
 
-.yuidoc-class-description {
-  background: none;
-  border: 0 none;
-  box-shadow: none;
-  padding: 0;
-  font-size: 12px;
-  line-height: 26px;
-  margin: 20px 0;
-}
 h1 {
   font-weight: 300;
 }
@@ -30,7 +23,6 @@ h2 {
   color: #6C6C6C;
 }
 h3 {
-  font-size: 14px;
   color: #4A4A4A;
 }
 body a {
@@ -48,12 +40,14 @@ body a:hover {
 }
 
 #options-form {
-  margin-top: 5px;
-  padding-right: 0;
+  padding-bottom: 1em;
+  border-bottom: solid 1px #eee;
+  margin-bottom: 1.5em;
 }
 
 #options-form label {
   margin: 0 2px;
+  font-weight: normal;
 }
 
 input.search-query:focus {
@@ -66,17 +60,60 @@ input.search-query:focus {
   background: #A2C7DA;
 }
 
-.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
-  background: #fff;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.04);
+.navbar.navbar-default {
+  background-color: white;
+  margin: 0;
+  border-radius: 0;
+  border-width: 0;
+  border-bottom-width: 1px;
+}
+.navbar.navbar-default .navbar-brand {
+  color: #797979;
+  font-size: 16px;
+  font-weight: 400;
+}
+.navbar.navbar-default .navbar-brand img {
+  height: 32px;
+  display: inline-block;
+  margin-top: -15px;
+}
+.navbar.navbar-default .navbar-brand span {
+  font-size: 12px;
+  vertical-align: super;
+  text-transform: uppercase;
+  color: #444444;
+}
+.navbar.navbar-default .navbar-nav > li > a {
+  font-size: 14px;
+  font-weight: 200;
+}
+.navbar.navbar-default .navbar-nav > li > a > .fa-caret-down {
+  margin-left: 3px;
+}
+.navbar.navbar-default .navbar-nav > li > a.github {
+  font-size: 24px;
+}
+.navbar.navbar-default .navbar-nav > li > a:focus,
+.navbar.navbar-default .navbar-nav > li > a:hover {
+  color: #f23818;
+}
+.navbar.navbar-default .navbar-nav > .active > a,
+.navbar.navbar-default .navbar-nav > .active > a:focus,
+.navbar.navbar-default .navbar-nav > .active > a:hover {
+  color: #f23818;
+  background-color: transparent;
+}
+
+
+#content-wrapper {
+  width: 960px;
+  padding: 0px 0px 20px 0px;
+  margin: 0 auto;
+  position: relative;
 }
 
 code {
   color: #636363;
-}
-
-.description {
-  padding: 10px 0;
 }
 
 ul.inline > li, ol.inline > li {
@@ -99,30 +136,6 @@ ul.inline > li, ol.inline > li {
   margin-bottom: 2px;
 }
 
-body .apidocs .item-list {
-  border: 0 solid #efefef;
-  border-width: 1px 1px 0 1px;
-  margin: 0;
-}
-
-body .apidocs .item-list > .item {
-  border: 0 solid #efefef;
-  border-width: 0 0 1px 0;
-  padding: 15px 20px;
-  margin: 0;
-
-}
-
-body .apidocs .item:last-child, body .apidocs .constructor .item:last-child {
-  border-radius: 0 0 3px 3px;
-}
-body .apidocs .item:first-child, body .apidocs .constructor .item:first-child {
-  border-radius: 3px 3px 0 0;
-}
-body .apidocs .item:first-child:last-child, body .apidocs .constructor .item:first-child:last-child {
-  border-radius: 3px;
-}
-
 pre {
   tab-size: 4;
 }
@@ -137,104 +150,164 @@ pre {
   margin-bottom: 15px;
 }
 
-.sidebar-container {
-  position: fixed;
-  width: 300px;
-  height: 100%;
-  overflow-y: auto;
-  border-right: 1px solid #ccc;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  background-color: #fcfcfc;
-}
-
 .content-container {
-  margin-left: 350px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  margin: 38px 0 90px 2.1em;
+  width: 700px;
+  float: left;
 }
 
 .content-container .docs-main {
   margin-top: 50px;
 }
 
-#sidebar .header {
-    z-index: 200;
-    text-align: center;
-    padding: 0.809em;
-    display: block;
-    color: #fcfcfc;
-    margin-bottom: 0.809em;
-
+#sidebar {
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: normal;
+  margin-top: 38px;
+  float: left;
+  width: 220px;
+  margin-bottom: 28px;
+  padding-bottom: 120px;
+  border-left: 1px solid #d4ccc8;
+  border-right: 1px solid #d4ccc8;
+  position: relative;
+  padding: 0;
+  list-style: none;
 }
 
-#sidebar .header .brand {
-  font-size: 16px;
-}
-
+#sidebar ol,
 #sidebar ul {
-    list-style: none;
-    margin: 0;
-    margin-bottom: 5em;
+ list-style: none;
 }
 
-#sidebar ul li {
-    font-size: 13px;
-    border: none;
+#sidebar li.panel {
+  margin-bottom: 0;
+  border-radius: 0;
+  border-width: 1px 0;
 }
 
-#sidebar ul li.section {
-  font-weight: bold;
-  margin: 20px;
+#sidebar li.panel + .panel {
+  margin-top: 0;
+  border-top-width: 0;
 }
 
-#sidebar ul li.section:hover {
-  background: inherit;
-}
-
-#sidebar ul li.sub a {
-  padding-left: 40px;
-}
-
-#sidebar ul li a {
-    color: #717171;
-    text-decoration: none;
-    cursor: pointer;
-    line-height: 20px;
-    padding: 5px 20px;
-    display: block;
-}
-
-#sidebar ul li a:hover, #sidebar ul li.active a {
-  background: grey;
-  color: white;
-  font-weight: 600;
-}
-
-#sidebar .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 300px;
-  color: #585858;
-  background: #E6E6E6;
-  border-top: 1px solid #ccc;
-  z-index: 400;
-  padding: 15px 20px;
-  box-sizing: border-box;
+#sidebar li.panel .panel-title {
   font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-#sidebar .footer a.github {
-  color: #585858;
+#sidebar li.panel .panel-title > a {
+  display: block;
+  text-decoration: none;
 }
 
-#api-tabview-filter {
-  margin: 0 0 10px 0;
+#sidebar li.panel .panel-body {
+  padding: 0;
 }
 
-#docs-main {
-  margin-top: 25px;
+#sidebar li.panel .panel-body ol {
+  padding: 0;
+  margin: 10px 0;
 }
+
+#sidebar li.panel .panel-body ol > li {
+  font-size: 12px;
+  font-weight: bold;
+  list-style: none;
+  margin: 0px;
+  padding: 0px
+}
+
+#sidebar li.panel .panel-body ol > li.sub {
+    padding-left: 15px;
+}
+
+#sidebar li.panel .panel-body ol > li.active,
+#sidebar li.panel .panel-body ol > li:hover {
+  background: #ead9d9;
+}
+
+#sidebar li.panel .panel-body ol > li.active > a,
+#sidebar li.panel .panel-body ol > li:hover > a {
+  color: #333;
+}
+
+#sidebar li.panel .panel-body ol > li > a {
+  padding: 6px 1em 6px 1em;
+  line-height: 1.2em;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+
+
+
+
+#docs-main .page-header {
+  color: #f23818;
+}
+
+#docs-main .page-header > h1 > i {
+  padding-right: 20px;
+}
+
+#docs-main .page-header h1,
+#docs-main .page-header {
+  margin-top: 0;
+}
+
+#docs-main .page-section:not(.moduledesc)  {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-top: 2em;
+}
+
+#docs-main .page-section .nav-tabs {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #f23818;
+}
+
+#docs-main .page-section .nav-tabs > li {
+    display: table-cell;
+    float: none;
+}
+
+#docs-main .page-section .nav-tabs > li a {
+  margin-right: 0;
+  border-radius: 0;
+  text-align: center;
+}
+
+#docs-main .page-section .nav-tabs > li.active a {
+  background: #f23818;
+  border: 1px solid #f23818;
+  color: white;
+}
+
+#docs-main .page-section .nav-tabs > li:first-of-type a {
+  border-top-left-radius: 4px;
+}
+
+#docs-main .page-section .nav-tabs > li:last-of-type a {
+  border-top-right-radius: 4px;
+}
+
+#docs-main .page-section .tab-content {
+  margin: 1em 1.5em 2em 1.5em;
+}
+
+
 
 #api-classes, #api-modules, #api-tabview-filter {
   padding: 0;
@@ -258,8 +331,44 @@ pre {
 .paren {
   // font-family: monospace;
 }
+
+
+.apidocs .index-section h3 {
+  text-transform: uppercase;
+  margin: 1.5em 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.apidocs .index-list {
+  column-count: 2;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  -moz-column-count: 2;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 1em;
+  column-gap: 1em;
+  font-size: 14px;
+  margin: 1em 1.5em;
+}
+
+.apidocs .content-meta {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.apidocs .content-meta a {
+  font-weight: normal;
+  text-transform: none;
+}
+
 .apidocs .args {
   margin: 0;
+}
+
+.apidocs .args .args-list {
+  font-style: italic;
 }
 
 .apidocs .flag {
@@ -279,8 +388,19 @@ pre {
 .apidocs .flag.final { border-color: #B6B6B6; color: #B6B6B6; }
 .apidocs .flag.static { border-color: #B6B6B6; color: #B6B6B6; }
 
-.page-header {
-  border-bottom: 0 none;
+.yuidoc-class-description {
+  background: none;
+  border: 0 none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.yuidoc-class-description > p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 1.5em 0;
+  line-height: 1.5em;
+  color: #0C0C0C;
 }
 
 .yuidoc-class-description pre {
@@ -302,8 +422,19 @@ pre {
 .apidocs .item h4, .apidocs .item h5, .apidocs .item h6 {
   color: #626262;
   font-family: inherit;
+  font-size: 18px;
+  line-height: 2em;
+  font-weight: bold;
+}
+
+.apidocs .item .name {
+  font-size: 16px;
+  color: #626262;
+  font-weight: bold;
+}
+
+.apidocs .item .type, .apidocs .returns-inline {
   font-size: 13px;
-  line-height: 20px;
 }
 
 .params-list li:last-child {
@@ -314,6 +445,35 @@ pre {
   margin-top: 25px;
   border-top: 1px solid #ccc;
   padding-top: 15px;
+}
+
+.apidocs div.method, .apidocs div.property, .apidocs div.event {
+  padding-bottom: 2em;
+  border-bottom: solid 1px #e0e0e0;
+  margin-bottom: 1em;
+}
+
+.apidocs div.method:last-child, .apidocs div.property:last-child, .apidocs div.event:last-child {
+    border-bottom: none;
+}
+
+.apidocs .item .meta {
+  line-height: 16px;
+  font-size: 11px;
+  clear: left;
+}
+
+.apidocs .item .meta p {
+  margin-top: 0;
+}
+
+.apidocs .item  p {
+  margin: 1.5em 0;
+  line-height: 1.5em;
+}
+
+ol.linenums {
+  padding: 0;
 }
 
 .typeahead.dropdown-menu {
