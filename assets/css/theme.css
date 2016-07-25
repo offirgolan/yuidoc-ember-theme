@@ -48,6 +48,7 @@ body a:hover {
 #options-form label {
   margin: 0 2px;
   font-weight: normal;
+  cursor: pointer;
 }
 
 input.search-query:focus {
@@ -286,7 +287,7 @@ pre {
 }
 
 #docs-main .page-header .file-edit > i {
-      font-size: 18px;
+    font-size: 16px;
 }
 
 #docs-main .page-section {
