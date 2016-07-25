@@ -1,4 +1,10 @@
+var PROJECT;
+
 module.exports = {
+  setupGlobals: function() {
+    PROJECT = this;
+    return '';
+  },
   publicClasses: function(context, options) {
     'use strict';
     var ret = "";
@@ -130,17 +136,16 @@ module.exports = {
   },
 
   projectTag: function() {
-    return getTagFromVersion(this.projectVersion);
+    return getTagFromVersion();
   },
 
   githubFoundAt: function() {
-    var tag = getTagFromVersion(this.projectVersion);
-    return this.projectUrl + '/tree/' + tag + '/' + this.file + '#L' + this.line;
+    return PROJECT.projectUrl + '/tree/' + getTagFromVersion() + '/' + this.file + '#L' + this.line;
   }
 };
 
-function getTagFromVersion(version) {
-  version = version || '';
+function getTagFromVersion() {
+  var version = PROJECT.projectVersion;
 
   if(version.charAt(0).toLowerCase() === 'v') {
     return version;

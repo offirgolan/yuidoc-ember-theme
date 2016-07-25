@@ -8,6 +8,11 @@ $ npm install yuidoc-ember-theme
 
 [**Live Example**](http://offirgolan.github.io/ember-cp-validations/docs)
 
+## Notes
+
+- This theme is to be used with [ember-cli-yuidoc](https://github.com/cibernox/ember-cli-yuidoc) which uses
+[git-repo-version](https://github.com/cibernox/git-repo-version) to generate the project version.
+
 ### Configuration File
 
 If your project uses a "yuidoc.json" file for configuration, add:
