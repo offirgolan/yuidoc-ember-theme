@@ -39,8 +39,12 @@ module.exports = {
   },
   notEmpty: function(context, options) {
     'use strict';
-    if (!context || !String(context).replace(/\s/g, '')) return options.inverse(this);
-    return options.fn(this);
+
+    if(context && Array.isArray(context)) {
+      return context.length > 0 ? options.fn(this) : options.inverse(this);
+    } else {
+      return (!context || !String(context).replace(/\s/g, '')) ? options.inverse(this) : options.fn(this);
+    }
   },
   hasStaticMethods: function(context, options) {
     'use strict';
@@ -109,6 +113,28 @@ module.exports = {
       return options.fn(this);
     } else {
       return options.inverse(this);
+    }
+  },
+
+  deEmberifiedName: function() {
+    var name = this.projectName || '';
+
+    var delimiter = name.indexOf('-') > -1 ? '-' : ' ';
+    var segments = name.split(delimiter);
+
+    if(segments[0].toLowerCase() === 'ember') {
+      name = segments.slice(1, segments.length).join(delimiter).trim();
+    }
+
+    return name;
+  },
+
+  projectTag: function() {
+    var version = this.projectVersion || '';
+    if(version.charAt(0).toLowerCase() === 'v') {
+      return version;
+    } else {
+      return version.split('.').pop();
     }
   }
 };

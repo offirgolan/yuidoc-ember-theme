@@ -9,7 +9,9 @@
         </div>
         <div id="sidebar-search" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sidebar-search-heading">
             <div class="panel-body">
-                <input type="search" name="search" value="" placeholder="Search...">
+                <div id="api-tabview-filter">
+                    <input type="search" id="api-filter" placeholder="Search...">
+                </div>
             </div>
         </div>
     </li>
@@ -17,7 +19,7 @@
         <li class="panel panel-default">
             <div class="panel-heading" role="tab" id="sidebar-version-heading">
                 <h4 class="panel-title">
-                    <a role="button" href="{{projectUrl}}/commits/{{projectVersion}}" target="_blank">
+                    <a role="button" href="{{projectUrl}}/commits/{{projectTag}}" target="_blank">
                       Tag: {{projectVersion}}
                     </a>
                 </h4>

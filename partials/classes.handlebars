@@ -1,9 +1,11 @@
 <div class="page-header">
     <h1> <i class="fa fa-bookmark-o" aria-hidden="true"></i> {{name}} Class
       {{#if foundAt}}
-        <a class="pull-right file-edit" href="{{projectUrl}}/tree/{{projectVersion}}/{{file}}#L{{line}}" target="_blank">
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-        </a>
+          {{#notEmpty projectVersion}}
+            <a class="pull-right file-edit" href="{{projectUrl}}/tree/{{projectTag}}/{{file}}#L{{line}}" target="_blank">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+          {{/notEmpty}}
       {{/if}}
     </h1>
 </div>

@@ -6,7 +6,7 @@ A simple [YUIDoc](http://yui.github.io/yuidoc/) theme. Based off [yuidoc-bootstr
 $ npm install yuidoc-ember-theme
 ```
 
-[**Live Example**](http://offirgolan.github.io/ember-cp-validations/docs/modules/Home.html)
+[**Live Example**](http://offirgolan.github.io/ember-cp-validations/docs)
 
 ### Configuration File
 
