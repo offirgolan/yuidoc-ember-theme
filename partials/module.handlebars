@@ -1,5 +1,11 @@
 <div class="page-header">
-    <h1> <i class="fa fa-bookmark-o" aria-hidden="true"></i> {{name}} Module</h1>
+    <h1> <i class="fa fa-bookmark-o" aria-hidden="true"></i> {{name}} Module
+        {{#if foundAt}}
+          <a class="pull-right file-edit" href="{{projectUrl}}/tree/{{projectVersion}}/{{file}}#L{{line}}" target="_blank">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+        {{/if}}
+    </h1>
 </div>
 
 <div class="content-meta">

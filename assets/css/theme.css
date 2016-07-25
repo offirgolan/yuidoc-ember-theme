@@ -256,6 +256,7 @@ pre {
   font-family: 'Open Sans', sans-serif;
   padding: 10px 10px;
   outline: none;
+  font-size: 13px;
 }
 
 
@@ -272,6 +273,20 @@ pre {
 #docs-main .page-header h1,
 #docs-main .page-header {
   margin-top: 0;
+  font-size: 24px;
+}
+
+#docs-main .page-header .file-edit {
+  color: darkgray;
+  text-decoration: none;
+}
+
+#docs-main .page-header .file-edit:hover {
+  color: #5f5f5f;
+}
+
+#docs-main .page-header .file-edit > i {
+      font-size: 18px;
 }
 
 #docs-main .page-section {

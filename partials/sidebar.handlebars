@@ -13,15 +13,17 @@
             </div>
         </div>
     </li>
-    <li class="panel panel-default">
-        <div class="panel-heading" role="tab" id="sidebar-version-heading">
-            <h4 class="panel-title">
-          <a role="button" href="{{projectUrl}}/commits/{{projectVersion}}" target="_blank">
-            Tag: {{projectVersion}}
-          </a>
-        </h4>
-        </div>
-    </li>
+    {{#notEmpty projectVersion}}
+        <li class="panel panel-default">
+            <div class="panel-heading" role="tab" id="sidebar-version-heading">
+                <h4 class="panel-title">
+                    <a role="button" href="{{projectUrl}}/commits/{{projectVersion}}" target="_blank">
+                      Tag: {{projectVersion}}
+                    </a>
+                </h4>
+            </div>
+        </li>
+    {{/notEmpty}}
     <li class="panel panel-default">
         <div class="panel-heading" role="tab" id="sidebar-modules-heading">
             <h4 class="panel-title">
