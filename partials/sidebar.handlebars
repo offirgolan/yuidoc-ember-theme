@@ -1,5 +1,19 @@
 <ol class="panel-group" id="sidebar" role="tablist" aria-multiselectable="true">
     <li class="panel panel-default">
+        <div class="panel-heading" role="tab" id="sidebar-search-heading">
+            <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" href="#sidebar-search" aria-expanded="true" aria-controls="collapseOne">
+            Search
+          </a>
+        </h4>
+        </div>
+        <div id="sidebar-search" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sidebar-search-heading">
+            <div class="panel-body">
+                <input type="search" name="search" value="" placeholder="Search...">
+            </div>
+        </div>
+    </li>
+    <li class="panel panel-default">
         <div class="panel-heading" role="tab" id="sidebar-version-heading">
             <h4 class="panel-title">
           <a role="button" href="{{projectUrl}}/commits/{{projectVersion}}" target="_blank">

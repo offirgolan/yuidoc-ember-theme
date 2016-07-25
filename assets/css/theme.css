@@ -152,7 +152,7 @@ pre {
 
 .content-container {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  margin: 38px 0 90px 2.1em;
+  margin: 38px 0 20px 2.1em;
   width: 700px;
   float: left;
 }
@@ -248,7 +248,15 @@ pre {
   text-decoration: none;
 }
 
-
+#sidebar input {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding-left: 10px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 10px 10px;
+  outline: none;
+}
 
 
 
@@ -266,10 +274,13 @@ pre {
   margin-top: 0;
 }
 
-#docs-main .page-section:not(.moduledesc)  {
+#docs-main .page-section {
+  margin-top: 2em;
+}
+
+#docs-main .page-section:not(.moduledesc) {
   border: 1px solid #eee;
   border-radius: 4px;
-  margin-top: 2em;
 }
 
 #docs-main .page-section .nav-tabs {
@@ -476,17 +487,29 @@ ol.linenums {
   padding: 0;
 }
 
-.typeahead.dropdown-menu {
-  width: 210px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-top-width: 0;
-  margin-left: 12px !important;
-  margin-top: 5px !important;
+.ui-autocomplete {
+  width: 220px;
+  list-style: none;
+  background: rgba(72, 72, 72, 0.95);
+  padding: 0;
+  color: white;
+  font-size: 13px;
 }
 
-.typeahead.dropdown-menu li a, .typeahead.dropdown-menu li a:hover {
-  background-image: none;
-  background-color: initial;
-  text-align: left;
+.ui-autocomplete li {
+  border-bottom: 1px solid #9c9c9c;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.ui-autocomplete li:last-of-type {
+  border-bottom: none;
+}
+
+.ui-autocomplete li:hover {
+  background: rgba(117, 117, 117, 0.95);
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
 }
