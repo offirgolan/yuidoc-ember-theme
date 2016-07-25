@@ -130,11 +130,21 @@ module.exports = {
   },
 
   projectTag: function() {
-    var version = this.projectVersion || '';
-    if(version.charAt(0).toLowerCase() === 'v') {
-      return version;
-    } else {
-      return version.split('.').pop();
-    }
+    return getTagFromVersion(this.projectVersion);
+  },
+
+  githubFoundAt: function() {
+    var tag = getTagFromVersion(this.projectVersion);
+    return this.projectUrl + '/tree/' + tag + '/' + this.file + '#L' + this.line;
   }
 };
+
+function getTagFromVersion(version) {
+  version = version || '';
+
+  if(version.charAt(0).toLowerCase() === 'v') {
+    return version;
+  } else {
+    return version.split('.').pop();
+  }
+}

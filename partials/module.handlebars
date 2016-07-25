@@ -2,7 +2,7 @@
     <h1> <i class="fa fa-bookmark-o" aria-hidden="true"></i> {{name}} Module
         {{#if foundAt}}
             {{#notEmpty projectVersion}}
-              <a class="pull-right file-edit" href="{{projectUrl}}/tree/{{projectTag}}/{{file}}#L{{line}}" target="_blank">
+              <a class="pull-right file-edit" href="{{githubFoundAt}}" target="_blank">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </a>
             {{/notEmpty}}
