@@ -10,7 +10,6 @@ body {
     background: #fcfcfc;
     font-size: 14px;
     line-height: 1.4em;
-    height: 100%;
 }
 h1 {
     font-size: 24px;
@@ -104,6 +103,9 @@ input.search-query:focus {
 .navbar.navbar-default .navbar-nav> .active> a, .navbar.navbar-default .navbar-nav> .active> a:focus, .navbar.navbar-default .navbar-nav> .active> a:hover {
     color: #f23818;
     background-color: transparent;
+}
+#main-wrapper {
+    margin: 0;
 }
 #content-wrapper {
     width: 960px;
