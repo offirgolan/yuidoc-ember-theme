@@ -1,3 +1,5 @@
+{{setupClass}}
+
 <div class="page-header">
     <h1> <i class="fa fa-bookmark-o" aria-hidden="true"></i> {{name}} Class
       {{#if foundAt}}
@@ -9,6 +11,11 @@
       {{/if}}
     </h1>
 </div>
+
+{{#if isPrivate}}
+  <p class="private-class">Private</p>
+{{/if}}
+
 <div class="content-meta">
     {{#if uses}}
         <div class="uses">

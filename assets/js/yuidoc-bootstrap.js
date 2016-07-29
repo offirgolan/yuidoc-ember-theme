@@ -30,6 +30,23 @@ $(function() {
         }
     }
 
+    function setupActiveSidebarLink() {
+        var pathname = window.location.pathname;
+
+        if(pathname) {
+            var pathArr = pathname.split('/');
+            var path = decodeURIComponent(pathArr.slice(pathArr.length - 2, pathArr.length).join('/')); // modules/My Module.html
+
+            $('#sidebar li > a').each(function(i) {
+                var a = $(this);
+
+                if(a.attr('href').indexOf(path) > -1) {
+                    a.parent('li').addClass('active');
+                }
+            });
+        }
+    }
+
     function setUpWidgets() {
         var source = [];
         var sidebarSearch;
@@ -232,6 +249,7 @@ $(function() {
     // ************************************************************************* //
 
     setUpOptionsCheckboxes();
+    setupActiveSidebarLink();
     setUpWidgets();
     setUpHashChange();
     if (window.location.hash) {

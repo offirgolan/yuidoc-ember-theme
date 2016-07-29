@@ -1,3 +1,5 @@
+{{setupModule}}
+
 <div class="page-header">
     <h1> <i class="fa fa-bookmark-o" aria-hidden="true"></i> {{name}} Module
         {{#if foundAt}}
@@ -68,23 +70,23 @@
     <div class="yui3-g footer">
         {{#if moduleClasses}}
             <div class="yui3-u-1-2">
-                    <p>This module provides the following classes:</p>
+                    <h3>Classes</h3>
 
                     <ul class="module-classes">
-                    {{#moduleClasses}}
+                    {{#publicClasses filteredModuleClasses}}
                         <li class="module-class">
                             <a href="{{../projectRoot}}classes/{{name}}.html">
                                 {{displayName}}
                             </a>
                         </li>
-                    {{/moduleClasses}}
+                    {{/publicClasses}}
                     </ul>
             </div>
         {{/if}}
 
         {{#if subModules}}
             <div class="yui3-u-1-2">
-                    <p>This module is a rollup of the following modules:</p>
+                    <h3>Submodules</h3>
 
                     <ul class="module-submodules">
                     {{#subModules}}

@@ -1,24 +1,57 @@
 var PROJECT;
 
 module.exports = {
+  log: function() {
+    var slicedArgs = Array.prototype.slice.call(arguments, 0, arguments.length - 1);
+    console.log.apply(console, slicedArgs);
+  },
+
   setupGlobals: function() {
     PROJECT = this;
     return '';
   },
+
+  setupClass: function() {
+    var classes = this.classes;
+
+    for(var i = 0; i < classes.length; i++) {
+      if(classes[i].name === this.name) {
+        this.isPrivate = !isPublic(classes[i]);
+        break;
+      }
+    }
+  },
+
+  setupModule: function() {
+    var self = this;
+    var moduleClasses = [];
+
+    this.classes.forEach(function(c) {
+      if(c.module === self.name) {
+        moduleClasses.push(c);
+      }
+    });
+
+    this.filteredModuleClasses = moduleClasses;
+  },
+
+  isPrivate: function(context, options) {
+    return isPublic(context) ? options.inverse(this) : options.fn(this);
+  },
+
   publicClasses: function(context, options) {
     'use strict';
     var ret = "";
 
     for (var i = 0; i < context.length; i++) {
-      if (!context[i].itemtype && context[i].access === 'public') {
-        ret = ret + options.fn(context[i]);
-      } else if (context[i].itemtype) {
+      if (isPublic(context[i])) {
         ret = ret + options.fn(context[i]);
       }
     }
 
     return ret;
   },
+
   /**
    * Hack for:
    * https://github.com/yui/yuidoc/issues/198
@@ -152,4 +185,8 @@ function getTagFromVersion() {
   } else {
     return version.split('.').pop();
   }
+}
+
+function isPublic(context) {
+  return context.itemtype || (!context.itemtype && context.access === 'public');
 }

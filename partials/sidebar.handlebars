@@ -39,11 +39,11 @@
                 {{#if modules}}
                     <ol>
                         {{#modules}}
-                            <li {{#eq name ../name}} class="active" {{/eq}}>
+                            <li>
                                 <a href="{{../projectRoot}}modules/{{name}}.html">{{displayName}}</a>
                                 {{#if submodules}}
                                     {{#submodules}}
-                                        <li class="sub {{#eq displayName ../../../displayName}}active{{/eq}}"><a href="{{../../../projectRoot}}modules/{{displayName}}.html">{{displayName}}</a></li>
+                                        <li class="sub"><a href="{{../../../projectRoot}}modules/{{displayName}}.html">{{displayName}}</a></li>
                                     {{/submodules}}
                                 {{/if}}
                             </li>
@@ -66,7 +66,9 @@
             <div class="panel-body">
                 <ol>
                     {{#publicClasses classes}}
-                        <li {{#eq name ../name}} class="active" {{/eq}}><a href="{{../projectRoot}}classes/{{name}}.html">{{displayName}}</a></li>
+                        <li>
+                            <a href="{{../projectRoot}}classes/{{name}}.html">{{displayName}}</a>
+                        </li>
                     {{/publicClasses}}
                 </ol>
             </div>
