@@ -307,6 +307,9 @@ pre {
 .method-signature .optional {
     color: ##787878;
 }
+.apidocs p {
+    margin: 1.5em 0;
+}
 .apidocs .footer h3,
 .apidocs .index-section h3 {
     margin: 1.5em 0;
