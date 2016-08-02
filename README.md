@@ -1,12 +1,12 @@
-# yuidoc-ember-theme
+# YUIDoc Ember Theme
 
-A simple [YUIDoc](http://yui.github.io/yuidoc/) theme. Based off [yuidoc-bootstrap-theme](https://github.com/kevinlacotaco/yuidoc-bootstrap-theme).
+An EmberJS based [YUIDoc](http://yui.github.io/yuidoc/) theme
+
+[**Live Example**](http://offirgolan.github.io/ember-cp-validations/docs)
 
 ```sh
 $ npm install yuidoc-ember-theme
 ```
-
-[**Live Example**](http://offirgolan.github.io/ember-cp-validations/docs)
 
 ## Notes
 
@@ -27,7 +27,7 @@ Example:
 ```json
 {
     "name": "Example",
-    "url": "www.example.com",
+    "url": "<GITHUB REPO URL>",
     "version": "0.1.0",
     "options": {
         "paths": "_location to parse_",
