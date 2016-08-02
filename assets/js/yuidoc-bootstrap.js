@@ -68,7 +68,7 @@ $(function() {
     function setupHeaderAnchors() {
         var slugger = new GithubSlugger();
 
-        $('h1, h2, h3, h4', '.module-description, .class-description').each(function() {
+        $('h1, h2, h3, h4, h5, h6', '.module-description, .class-description').each(function() {
             var $element = $(this);
             var id = slugger.slug($element.text());
 
@@ -266,7 +266,7 @@ $(function() {
     setupActiveSidebarLink();
     setUpWidgets();
     setUpHashChange();
-    
+
     if (window.location.hash) {
         moveToWindowHash();
     }
