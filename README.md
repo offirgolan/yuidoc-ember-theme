@@ -1,5 +1,7 @@
 # YUIDoc Ember Theme
 
+[![npm version](https://badge.fury.io/js/yuidoc-ember-theme.svg)](http://badge.fury.io/js/yuidoc-ember-theme)
+
 An EmberJS based [YUIDoc](http://yui.github.io/yuidoc/) theme
 
 [**Live Example**](http://offirgolan.github.io/ember-cp-validations/docs)
