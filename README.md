@@ -31,6 +31,8 @@ Example:
     "name": "Example",
     "url": "<GITHUB REPO URL>",
     "version": "0.1.0",
+    "hideVersionTag": true,
+    "markdownDirectory": "docs",
     "options": {
         "paths": "_location to parse_",
         "outdir": "build/docs",
@@ -39,4 +41,22 @@ Example:
         "helpers": ["node_modules/yuidoc-ember-theme/helpers/helpers.js"]
     }
 }
+```
+
+### Markdown
+
+To have the body of the index page be markdown, simply put your markdown in a folder and set ` "markdownDirectory": "docs"` in your `yuidoc.json`
+
+This will output a concatenation of these markdown files onto the index page of your docs
+
+For example:
+
+```
+.
++-- app.js
++-- docs
+|   +-- 0_intro.md
+|   +-- 1_more.md
+|   +-- 2_footer.md
++-- yuidoc.json
 ```

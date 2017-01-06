@@ -15,7 +15,7 @@
             </div>
         </div>
     </li>
-    {{#notEmpty projectVersion}}
+    {{#unless projectVersion}}
         <li class="panel panel-default">
             <div class="panel-heading" role="tab" id="sidebar-version-heading">
                 <h4 class="panel-title">
@@ -25,7 +25,7 @@
                 </h4>
             </div>
         </li>
-    {{/notEmpty}}
+    {{/unless}}
     <li class="panel panel-default">
         <div class="panel-heading" role="tab" id="sidebar-modules-heading">
             <h4 class="panel-title">

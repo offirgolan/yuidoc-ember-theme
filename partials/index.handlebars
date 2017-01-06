@@ -1,3 +1,6 @@
+{{#if projectMarkdownDirectory}}
+  {{{markdownFromDirectory projectMarkdownDirectory}}}
+{{else}}
     <div class="apidocs">
         <div id="docs-main" class="content">
             <div class="page-header">
@@ -23,3 +26,4 @@
             </script>
         </div>
     </div>
+{{/if}}
