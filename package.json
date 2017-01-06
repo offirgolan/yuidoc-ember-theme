@@ -1,5 +1,6 @@
 {
   "name": "yuidoc-ember-theme",
+  "license": "MIT",
   "version": "1.2.1",
   "description": "YUIDoc theme for ember addons",
   "repository": {
@@ -11,5 +12,8 @@
   ],
   "author": {
     "name": "Offir Golan"
-  }
+  },
+  "contributors": [
+    {"name": "Dan Green"}
+  ]
 }

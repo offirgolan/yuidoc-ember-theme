@@ -174,7 +174,13 @@ module.exports = {
 
   githubFoundAt: function() {
     return PROJECT.projectUrl + '/tree/' + getTagFromVersion() + '/' + this.file + '#L' + this.line;
+  },
+  markdownFromDirectory: function (path) {
+    const MarkdownIt = require('markdown-it');
+    const md = new MarkdownIt();
+    return md.render(getCondensedMarkdown(path));
   }
+
 };
 
 function getTagFromVersion() {
@@ -189,4 +195,12 @@ function getTagFromVersion() {
 
 function isPublic(context) {
   return context.itemtype || (!context.itemtype && context.access === 'public');
+}
+
+function getCondensedMarkdown(directory){
+  const fs = require('fs');
+  const fileNames = fs.readdirSync(directory);
+  return fileNames.reduce((tally, current)=>{
+    return tally + fs.readFileSync(directory+"/"+current, 'utf8');
+  }, "");
 }
