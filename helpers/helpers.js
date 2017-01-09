@@ -76,6 +76,7 @@ module.exports = {
       }
     }).join(' | ');
   },
+
   notEmpty: function(context, options) {
     'use strict';
 
@@ -85,6 +86,7 @@ module.exports = {
       return (!context || !String(context).replace(/\s/g, '')) ? options.inverse(this) : options.fn(this);
     }
   },
+
   hasStaticMethods: function(context, options) {
     'use strict';
     var hasStatic = false;
@@ -100,6 +102,7 @@ module.exports = {
     }
     return '';
   },
+
   hasInstanceMethods: function(context, options) {
     'use strict';
     var hasInstance = false;
@@ -115,6 +118,7 @@ module.exports = {
     }
     return '';
   },
+
   search: function(classes, modules) {
     'use strict';
     var ret = '';
@@ -169,18 +173,28 @@ module.exports = {
   },
 
   projectTag: function() {
-    return getTagFromVersion();
+    return getTagFromVersion(PROJECT.projectVersion);
   },
 
   githubFoundAt: function() {
-    return PROJECT.projectUrl + '/tree/' + getTagFromVersion() + '/' + this.file + '#L' + this.line;
+    var meta = getFileMeta(this.file);
+    return generateGhFileUrl(meta.url, meta.version, meta.file, this.line);
+  },
+
+  fileName: function() {
+    var meta = getExternalFileMeta(this.file);
+    return meta ? this.file.replace(new RegExp(meta.path, 'i'), meta.name) : this.file;
+  },
+
+  forwardToIndexModule: function() {
+    return '<script type="text/javascript">' +
+              'window.location.replace("modules/' + this.projectIndexModule + '.html");' +
+           '</script>'
   }
 };
 
-function getTagFromVersion() {
-  var version = PROJECT.projectVersion;
-
-  if(version.charAt(0).toLowerCase() === 'v') {
+function getTagFromVersion(version) {
+  if (version === 'master' || version.charAt(0).toLowerCase() === 'v') {
     return version;
   } else {
     return version.split('.').pop();
@@ -189,4 +203,34 @@ function getTagFromVersion() {
 
 function isPublic(context) {
   return context.itemtype || (!context.itemtype && context.access === 'public');
+}
+
+function getFileMeta(file) {
+  var externalMeta = getExternalFileMeta(file)
+
+  if (externalMeta) {
+    return {
+      file: file.replace(new RegExp(externalMeta.path, 'i'), ''),
+      version: getTagFromVersion(externalMeta.version),
+      url: externalMeta.url
+    };
+  } else {
+    return {
+      file: file,
+      version: getTagFromVersion(PROJECT.projectVersion),
+      url: PROJECT.projectUrl
+    };
+  }
+}
+
+function getExternalFileMeta(file) {
+  var externalDocs = PROJECT.projectExternalDocs || [];
+
+  return externalDocs.find(function(externalDoc) {
+    return !!(file || '').match(new RegExp(externalDoc.path, 'i'));
+  });
+}
+
+function generateGhFileUrl(baseUrl, version, file, line) {
+  return baseUrl + '/blob/' + version + '/' + file + '#L' + line;
 }
