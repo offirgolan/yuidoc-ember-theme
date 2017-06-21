@@ -32,6 +32,8 @@ Example:
     "url": "<GITHUB REPO URL>",
     "version": "0.1.0",
     "indexModule": "Welcome",
+    "logo": "path/to/logo.png",
+    "primaryColor": "orange",
     "externalDocs": [{
         "name": "ember-validators",
         "path": "node_modules/ember-validators",
@@ -47,7 +49,6 @@ Example:
     }
 }
 ```
-
 
 ## Index Module
 
@@ -71,5 +72,17 @@ If you have external documentation taken from dependencies, you may list them un
         "url": "https://github.com/offirgolan/ember-validators",
         "version": "master"
     }]
+}
+```
+
+## Branding Settings
+
+The `logo` and `primaryColor` options can be specified in yuidoc.json to set the logo displayed in the upper
+left hand corner and the accent color used throughout the theme.
+
+```json
+{
+    "logo": "path/to/logo.png",
+    "primaryColor": "orange"
 }
 ```
