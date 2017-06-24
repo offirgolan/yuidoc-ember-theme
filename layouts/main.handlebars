@@ -14,13 +14,48 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700' rel='stylesheet' type='text/css'>
     {{!-- <link rel="shortcut icon" type="image/png" href="{{projectAssets}}/favicon.png"> --}}
     {{setupGlobals}}
+
+    {{#if projectPrimaryColor}}
+      <style>
+        body a {
+          color: {{projectPrimaryColor}};
+        }
+        body a:hover {
+          color: {{projectPrimaryColor}};
+          opacity: 0.5;
+        }
+        .navbar.navbar-default .navbar-nav> li> a:focus, .navbar.navbar-default .navbar-nav> li> a:hover {
+          color: {{projectPrimaryColor}};
+        }
+        .navbar.navbar-default .navbar-nav> .active> a, .navbar.navbar-default .navbar-nav> .active> a:focus, .navbar.navbar-default .navbar-nav> .active> a:hover {
+          color: {{projectPrimaryColor}};
+        }
+        #docs-main .page-header {
+          color: {{projectPrimaryColor}};
+        }
+        #docs-main .page-section .nav-tabs {
+          border-bottom: 1px solid {{projectPrimaryColor}};
+        }
+        #docs-main .page-section .nav-tabs> li.active a {
+          background: {{projectPrimaryColor}};
+          border: 1px solid {{projectPrimaryColor}};
+        }
+        #sidebar li.panel .panel-body ol> li.active, #sidebar li.panel .panel-body ol> li:hover {
+          background: #efefef;
+        }
+      </style>
+    {{/if}}
 </head>
 <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
           <a href="{{projectRoot}}" class="navbar-brand">
-            <img src="{{projectAssets}}/img/ember-logo.png" alt="">
+            {{#if projectLogo}}
+              <img src="{{projectLogo}}" alt="enterprise logo">
+            {{else}}
+              <img src="{{projectAssets}}/img/ember-logo.png" alt="enterprise logo">
+            {{/if}}
             <span>{{deEmberifiedName}}</span>
           </a>
         </div>
