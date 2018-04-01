@@ -305,10 +305,6 @@ pre {
 #docs-main .page-section {
   margin: 2em 0;
 }
-#docs-main .page-section:not(.module-description) {
-  border: 1px solid #eee;
-  border-radius: 4px;
-}
 #docs-main .page-section .nav-tabs {
   display: table;
   width: 100%;
@@ -328,14 +324,8 @@ pre {
   border: 1px solid #f23818;
   color: white;
 }
-#docs-main .page-section .nav-tabs > li:first-of-type a {
-  border-top-left-radius: 4px;
-}
-#docs-main .page-section .nav-tabs > li:last-of-type a {
-  border-top-right-radius: 4px;
-}
 #docs-main .page-section .tab-content {
-  margin: 1em 1.5em 2em 1.5em;
+  margin: 1em 0;
 }
 #api-classes,
 #api-modules,
@@ -511,7 +501,6 @@ pre.code {
 .apidocs div.property,
 .apidocs div.event {
   padding-bottom: 2em;
-  border-bottom: solid 1px #e0e0e0;
   margin-bottom: 1em;
 }
 .apidocs div.method:last-child,
