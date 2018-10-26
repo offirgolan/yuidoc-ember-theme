@@ -217,7 +217,7 @@ function getFileMeta(file) {
   } else {
     return {
       file: file,
-      version: getTagFromVersion(PROJECT.projectVersion),
+      version: 'develop',
       url: PROJECT.projectUrl
     };
   }
@@ -232,5 +232,5 @@ function getExternalFileMeta(file) {
 }
 
 function generateGhFileUrl(baseUrl, version, file, line) {
-  return baseUrl + '/blob/' + version + '/' + file + '#L' + line;
+  return baseUrl + '/blob/' + version + '/src/greenlight/' + file + '#L' + line;
 }
