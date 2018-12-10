@@ -6,6 +6,10 @@ module.exports = {
     console.log.apply(console, slicedArgs);
   },
 
+  parseImport: function(item) {
+    return item.replace(/^addon/, PROJECT.projectName).replace(/^app/, 'your-app-name')
+  },
+
   setupGlobals: function() {
     PROJECT = this;
     return '';
