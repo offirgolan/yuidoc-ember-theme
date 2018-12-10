@@ -7,7 +7,7 @@ module.exports = {
   },
 
   parseImport: function(item) {
-    return item.replace(/^addon/, PROJECT.projectName).replace(/^app/, 'your-app-name')
+    return item.replace(/^addon/, PROJECT.projectName).replace(/^app/, 'your-app-name').replace(/\.js$/, '');
   },
 
   setupGlobals: function() {
